@@ -1,5 +1,5 @@
 //
-//  MainViewController.h
+//  FeedViewController.h
 //  homework2
 //
 //  Created by Gabriele Angeline on 3/15/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MainViewController : UIViewController <UITextFieldDelegate>
+@interface FeedViewController : UIViewController
 
 @end

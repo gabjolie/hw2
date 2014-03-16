@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "MainViewController.h"
 
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -16,9 +17,11 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     MainViewController *vc = [[MainViewController alloc] init];
+    
     self.window.rootViewController = vc;
     
     self.window.backgroundColor = [UIColor colorWithRed:0.23 green:0.34 blue:0.59 alpha:1];
+    
     [self.window makeKeyAndVisible];
     return YES;
 }

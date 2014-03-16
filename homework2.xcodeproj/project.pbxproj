@@ -21,6 +21,8 @@
 		11A24CCC18D4FCEA0026E7E7 /* homework2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A24CCB18D4FCEA0026E7E7 /* homework2Tests.m */; };
 		11A24CD818D4FDF90026E7E7 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A24CD618D4FDF90026E7E7 /* MainViewController.m */; };
 		11A24CD918D4FDF90026E7E7 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11A24CD718D4FDF90026E7E7 /* MainViewController.xib */; };
+		11A24CDD18D5116E0026E7E7 /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A24CDB18D5116E0026E7E7 /* FeedViewController.m */; };
+		11A24CDE18D5116E0026E7E7 /* FeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11A24CDC18D5116E0026E7E7 /* FeedViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,9 @@
 		11A24CD518D4FDF90026E7E7 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		11A24CD618D4FDF90026E7E7 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		11A24CD718D4FDF90026E7E7 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		11A24CDA18D5116E0026E7E7 /* FeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedViewController.h; sourceTree = "<group>"; };
+		11A24CDB18D5116E0026E7E7 /* FeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedViewController.m; sourceTree = "<group>"; };
+		11A24CDC18D5116E0026E7E7 /* FeedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +124,9 @@
 				11A24CD518D4FDF90026E7E7 /* MainViewController.h */,
 				11A24CD618D4FDF90026E7E7 /* MainViewController.m */,
 				11A24CD718D4FDF90026E7E7 /* MainViewController.xib */,
+				11A24CDA18D5116E0026E7E7 /* FeedViewController.h */,
+				11A24CDB18D5116E0026E7E7 /* FeedViewController.m */,
+				11A24CDC18D5116E0026E7E7 /* FeedViewController.xib */,
 			);
 			path = homework2;
 			sourceTree = "<group>";
@@ -229,6 +237,7 @@
 			files = (
 				11A24CB118D4FCE90026E7E7 /* InfoPlist.strings in Resources */,
 				11A24CD918D4FDF90026E7E7 /* MainViewController.xib in Resources */,
+				11A24CDE18D5116E0026E7E7 /* FeedViewController.xib in Resources */,
 				11A24CB918D4FCE90026E7E7 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -250,6 +259,7 @@
 			files = (
 				11A24CB718D4FCE90026E7E7 /* AppDelegate.m in Sources */,
 				11A24CD818D4FDF90026E7E7 /* MainViewController.m in Sources */,
+				11A24CDD18D5116E0026E7E7 /* FeedViewController.m in Sources */,
 				11A24CB318D4FCE90026E7E7 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
