@@ -160,6 +160,10 @@
 - (void)wrongPass {
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Incorrect Password" message:@"The password you entered is incorrect. Please try again." delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
     [alertView show];
+    [self.activityView stopAnimating];
+    UIImage *loginImage = [UIImage imageNamed:@"loggin_btn_disabled"];
+    [self.logInBtn setBackgroundImage:loginImage forState:UIControlStateNormal];
+
 }
 
 
@@ -191,30 +195,22 @@
     //UIImage *login = [UIImage imageNamed:@"loggin_in_btn"];
     UIImage *loggingInImage = [UIImage imageNamed:@"loggin_in_btn"];
     //UIImage *loginImage = [UIImage imageNamed:@"loggin_button_disabled"];
-    
 
+    
+    [self.logInBtn setBackgroundImage:loggingInImage forState:UIControlStateNormal];
+    [self.activityView startAnimating];
     
     if ([text isEqualToString:@"password"]) {
         NSLog(@"You got the correct password!");
         [self performSelector:@selector(myMethod) withObject:nil afterDelay:2];
-        
-        
-        [self.logInBtn setBackgroundImage:loggingInImage forState:UIControlStateNormal];
-        
-        [self.activityView startAnimating];
+
     } else {
-        
+
         NSLog(@"incorrect password!");
         [self performSelector:@selector(wrongPass) withObject:nil afterDelay:2];
-        
-        
-        [self.activityView startAnimating];
-        
-        [self.logInBtn setBackgroundImage:loggingInImage forState:UIControlStateNormal];
+   
     }
     
-
-
 }
 
 
