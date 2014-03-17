@@ -463,6 +463,7 @@
 				11A24CD118D4FCEA0026E7E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		11A24CD218D4FCEA0026E7E7 /* Build configuration list for PBXNativeTarget "homework2Tests" */ = {
 			isa = XCConfigurationList;
@@ -471,6 +472,7 @@
 				11A24CD418D4FCEA0026E7E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
