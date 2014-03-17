@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UIView *loginView;
 @property (weak, nonatomic) IBOutlet UIButton *signUpBtn;
 @property (weak, nonatomic) IBOutlet UIButton *logInBtn;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityView;
+
 
 - (IBAction)onButton:(id)sender;
 
@@ -25,6 +27,9 @@
 // Declare some methods that will be called when the keyboard is about to be shown or hidden
 - (void)willShowKeyboard:(NSNotification *)notification;
 - (void)willHideKeyboard:(NSNotification *)notification;
+
+- (void)myMethod;
+- (void)wrongPass;
 
 @end
 
@@ -44,13 +49,18 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     
     self.passwordTextField.delegate = self;
+    self.emailTextField.delegate = self;
     self.loginView.backgroundColor = [UIColor colorWithRed:0.23 green:0.34 blue:0.59 alpha:1];
     self.logInBtn.enabled = NO;
+    
+    UIActivityIndicatorView *indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+        indicatorView.center = CGPointMake(13,20);
+    
+    [self.activityView addSubview:indicatorView];
     
 }
 
@@ -63,18 +73,17 @@
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    NSString *text = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    //NSString *text = [textField.text stringByReplacingCharactersInRange:range withString:string];
     
-    NSLog(@"%@", text);
+    //NSLog(@"%@", text);
     
     //if ([text isEqualToString:@"hello"]) {
     //    NSLog(@"You have the correct pass!");
     //}
     
-    if (text.length < 1) {
+    if (self.emailTextField.text.length == 0 || self.passwordTextField.text.length == 0) {
         NSLog(@"Btn is enabled");
-        self.logInBtn.enabled = NO
-        ;
+        self.logInBtn.enabled = NO;
     }   else {
         self.logInBtn.enabled = YES;
     }
@@ -134,6 +143,39 @@
                      completion:nil];
 }
 
+- (void)myMethod {
+    
+    FeedViewController *vc = [[FeedViewController alloc] init];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
+    navigationController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.23 green:0.34 blue:0.59 alpha:1];
+    navigationController.navigationBar.translucent = YES;
+    navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    
+    [self presentViewController:navigationController animated:YES completion:nil];
+    
+    
+}
+
+- (void)wrongPass {
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Incorrect Password" message:@"The password you entered is incorrect. Please try again." delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+    [alertView show];
+}
+
+
+- (void)myWaitMethod {
+    
+    FeedViewController *vc = [[FeedViewController alloc] init];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
+    navigationController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.23 green:0.34 blue:0.59 alpha:1];
+    navigationController.navigationBar.translucent = YES;
+    navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    
+    [self presentViewController:navigationController animated:YES completion:nil];
+    
+    
+}
 
 
 
@@ -146,24 +188,36 @@
 - (IBAction)onButton:(id)sender {
     NSLog(@"You tapped the button");
     NSString *text = self.passwordTextField.text;
+    //UIImage *login = [UIImage imageNamed:@"loggin_in_btn"];
+    UIImage *loggingInImage = [UIImage imageNamed:@"loggin_in_btn"];
+    //UIImage *loginImage = [UIImage imageNamed:@"loggin_button_disabled"];
+    
+
     
     if ([text isEqualToString:@"password"]) {
         NSLog(@"You got the correct password!");
-
-    FeedViewController *vc = [[FeedViewController alloc] init];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
-    navigationController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.23 green:0.34 blue:0.59 alpha:1];
-    navigationController.navigationBar.translucent = YES;
-    navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    
-    [self presentViewController:navigationController animated:YES completion:nil];
+        [self performSelector:@selector(myMethod) withObject:nil afterDelay:2];
         
+        
+        [self.logInBtn setBackgroundImage:loggingInImage forState:UIControlStateNormal];
+        
+        [self.activityView startAnimating];
     } else {
+        
         NSLog(@"incorrect password!");
+        [self performSelector:@selector(wrongPass) withObject:nil afterDelay:2];
+        
+        
+        [self.activityView startAnimating];
+        
+        [self.logInBtn setBackgroundImage:loggingInImage forState:UIControlStateNormal];
     }
     
+
+
 }
+
+
 
 - (IBAction)onTap:(id)sender {
     [self.view endEditing:YES];

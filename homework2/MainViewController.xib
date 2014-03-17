@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController">
             <connections>
+                <outlet property="activityView" destination="bNA-Yt-aYQ" id="3Ja-p7-3dZ"/>
                 <outlet property="emailTextField" destination="BAP-Nk-OcF" id="IgP-7i-ZFs"/>
                 <outlet property="logInBtn" destination="vOQ-og-4IZ" id="RiJ-BM-2YX"/>
                 <outlet property="loginView" destination="GYN-h4-LO1" id="ux0-DA-mpB"/>
@@ -46,7 +47,7 @@
                             <rect key="frame" x="28" y="68" width="264" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vOQ-og-4IZ">
                             <rect key="frame" x="13" y="106" width="293" height="52"/>
@@ -58,6 +59,10 @@
                                 <action selector="onButton:" destination="-1" eventType="touchUpInside" id="hCL-0Z-iYZ"/>
                             </connections>
                         </button>
+                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" id="bNA-Yt-aYQ">
+                            <rect key="frame" x="267" y="122" width="20" height="20"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </activityIndicatorView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                 </view>

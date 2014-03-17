@@ -11,6 +11,8 @@
 @interface FeedViewController ()
 
 @property (strong, nonatomic) IBOutlet UIView *feedView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *feedActivityView;
+@property (weak, nonatomic) IBOutlet UIImageView *feed;
 
 @end
 
@@ -24,6 +26,17 @@
     }
     return self;
 }
+
+- (void) delayImageView {
+    CGRect rect = self.feed.frame;
+    CGSize size = CGSizeMake(320, 415);
+    rect.size = size;
+    self.feed.frame = rect;
+    [self.view addSubview:self.feed];
+    self.feed.center=CGPointMake(0,113);
+    self.feed.hidden = false;
+}
+
 
 - (void)viewDidLoad
 {
@@ -39,6 +52,10 @@
     
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"messages_icn"] style:UIBarButtonItemStylePlain target:self action:nil];
     self.navigationItem.rightBarButtonItem = rightButton;
+    
+    
+   [self performSelector:@selector(delayImageView) withObject:nil afterDelay:3];
+
     
 }
 
